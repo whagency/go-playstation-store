@@ -1,7 +1,7 @@
 # Go Sony PlayStation store API client
 
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/whagency/go-playstation-store/master/LICENSE.md)
-[![Go Report Card](https://goreportcard.com/badge/github.com/whagency/go-playstation-store)](https://goreportcard.com/report/github.com/whagency/go-playstation-store)
+[![Go Report Card](https://goreportcard.com/badge/github.com/whagency/go-playstation-store?v=2)](https://goreportcard.com/report/github.com/whagency/go-playstation-store)
 [![GoDoc](https://godoc.org/github.com/whagency/go-playstation-store?status.svg)](https://godoc.org/github.com/whagency/go-playstation-store)
 
 ## Install
@@ -15,10 +15,11 @@ go get -u github.com/whagency/go-playstation-store
 ```go
 import (
     ps "github.com/whagency/go-playstation-store/v1"
+    psData "github.com/whagency/go-playstation-store/v1/constants"
 )
 
 client := ps.NewClient(&ps.Config{
-    Region:  data.UnitedStates,
+    Region:  psData.UnitedStates,
     Timeout: 5 * time.Second,
     Logging: ps.LoggerStdout,
 })
@@ -47,7 +48,7 @@ for _, item := range data {
 ###### Get a list of available games from a category
 
 ```go
-data, err := client.GetCatalogData(data.PS5Games, 1)
+data, err := client.GetCatalogData(psData.PS5Games, 1)
 if err != nil {
     panic(err)
 }
