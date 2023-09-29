@@ -18,16 +18,18 @@ const (
 )
 
 type Config struct {
-	Region  string
-	Timeout time.Duration
-	Logging uint8
+	Region   string
+	Timeout  time.Duration
+	Logging  uint8
+	PageSize int
 }
 
 type Client struct {
-	ApiUrl  string
-	Region  string
-	Timeout time.Duration
-	log     logger
+	ApiUrl   string
+	Region   string
+	PageSize int
+	Timeout  time.Duration
+	log      logger
 }
 
 func NewClient(config *Config) *Client {
@@ -35,10 +37,11 @@ func NewClient(config *Config) *Client {
 		config = &Config{}
 	}
 	client := &Client{
-		ApiUrl:  apiBaseUrl,
-		Region:  config.Region,
-		Timeout: config.Timeout,
-		log:     newPsLogger(config.Logging),
+		ApiUrl:   apiBaseUrl,
+		Region:   config.Region,
+		Timeout:  config.Timeout,
+		PageSize: config.PageSize,
+		log:      newPsLogger(config.Logging),
 	}
 
 	return client
@@ -54,8 +57,8 @@ func (c *Client) GetCatalogData(category string, page int) (*response.CategoryGr
 		"facetOptions": []string{},
 		"id":           category,
 		"pageArgs": map[string]int{
-			"size":   pageSize,
-			"offset": page*pageSize - pageSize,
+			"size":   c.PageSize,
+			"offset": page*c.PageSize - c.PageSize,
 		},
 		"sortBy": map[string]interface{}{
 			"isAscending": false,
