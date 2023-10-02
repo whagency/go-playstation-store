@@ -47,7 +47,7 @@ func NewClient(config *Config) *Client {
 	return client
 }
 
-func (c *Client) GetRegions() []string {
+func (c *Client) GetRegions() map[string]string {
 	return constants.GetRegionsList()
 }
 

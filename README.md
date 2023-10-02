@@ -22,7 +22,7 @@ client := ps.NewClient(&ps.Config{
     Region:  psData.UnitedStates,
     Timeout: 5 * time.Second,
     Logging: ps.LoggerStdout,
-    PageSize: 50
+    PageSize: 50,
 })
 ```
 
