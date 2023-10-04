@@ -23,6 +23,7 @@ type FeaturesRetrieve struct {
 }
 
 type Offers []struct {
+	ID                   string      `json:"skuId"`
 	Title                string      `json:"title"`
 	Description          string      `json:"description"`
 	SubscriptionDuration string      `json:"subscriptionDuration"`
