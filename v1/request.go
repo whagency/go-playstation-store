@@ -75,12 +75,12 @@ func (c *Client) apiRequest(url string, method string, params map[string]string)
 		}
 	}
 
-	if 200 != respData.StatusCode {
-		return nil, fmt.Errorf("error %d: %s", respData.StatusCode, respData.Message)
-	}
-
 	if c.log.Enable {
 		c.log.Info.Printf("api code: %d; api message field: %s, errors: %v", respData.StatusCode, respData.Message, respData.Errors)
+	}
+
+	if 200 != respData.StatusCode {
+		return nil, fmt.Errorf("error %d: %s", respData.StatusCode, respData.Message)
 	}
 
 	return respData, nil
