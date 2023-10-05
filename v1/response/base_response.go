@@ -12,7 +12,7 @@ type ErrorsList []struct {
 type ErrorDetail struct {
 	ReferenceID string `json:"referenceId"`
 	Message     string `json:"message"`
-	Reason      int    `json:"reason"`
+	Reason      string `json:"reason"`
 	Source      string `json:"source"`
 }
 
