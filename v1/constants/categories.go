@@ -1,6 +1,7 @@
 package constants
 
 const (
+	Concepts          string = "28c9c2b2-cecc-415c-9a08-482a605cb104"
 	PS4Games          string = "44d8bb20-653e-431e-8ad0-c0a365f68d2f"
 	PS5Games          string = "4cbf39e2-5749-4970-ba81-93a489e4570c"
 	PSPlus            string = "038b4df3-bb4c-48f8-8290-3feb35f0f0fd"

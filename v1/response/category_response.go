@@ -22,6 +22,17 @@ type CategoryGridRetrieve struct {
 	ID       string           `json:"id"`
 	Products CategoryProducts `json:"products"`
 	PageInfo CategoryPageInfo `json:"pageInfo"`
+	Concepts CategoryConcepts `json:"concepts"`
+}
+
+type CategoryConcepts []struct {
+	ID       string                   `json:"id"`
+	Name     string                   `json:"name"`
+	Products CategoryConceptsProducts `json:"products"`
+}
+
+type CategoryConceptsProducts []struct {
+	ID string `json:"id"`
 }
 
 type CategoryPageInfo struct {
