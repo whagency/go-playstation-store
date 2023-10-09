@@ -21,6 +21,14 @@ func (resp *CategoryData) LoadData(data interface{}) error {
 type CategoryGridRetrieve struct {
 	ID       string           `json:"id"`
 	Products CategoryProducts `json:"products"`
+	PageInfo CategoryPageInfo `json:"pageInfo"`
+}
+
+type CategoryPageInfo struct {
+	IsLast     bool  `json:"isLast"`
+	Offset     int64 `json:"offset"`
+	Size       int64 `json:"size"`
+	TotalCount int64 `json:"totalCount"`
 }
 
 type CategoryProducts []struct {
